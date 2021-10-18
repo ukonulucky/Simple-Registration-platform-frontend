@@ -1,0 +1,55 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.hom {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  // background: linear-gradient(whitesmoke, rgba(154, 233, 154, 1));
+  // .home-wrap {
+  //   display: flex;
+  //   flex-direction: row;
+  // }
+  // }
+  min-width: auto;
+
+  .animate {
+    margin-bottom: 30px;
+    @media screen and (max-width: 1024px) {
+      margin-top: 60px;
+      margin-bottom: 60px;
+      padding-left: auto;
+    }
+  }
+  .home {
+    // background: url(/asset/rally1.jpg) no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100%;
+   
+  }
+}
+.home-wrap {
+  margin: auto;
+}
+.motivate {
+  color: crimson;
+  // padding-top: 2rem;
+  h1 {
+    color: rgb(44, 155, 44);
+    font-weight: 700px;
+    
+  }
+}
+// .motivate:hover {
+  
+//   background-color: burlywood;
+// }
+.conf{
+  // background-color: red;
+  // align-items: center;
+  // justify-content: center;
+  display: flex;
+  align-items: center;
+
+}
