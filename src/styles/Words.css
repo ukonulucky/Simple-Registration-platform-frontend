@@ -1,0 +1,88 @@
+.anime {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.words {
+  max-width: 100%;
+  letter-spacing: 5px;
+  font-size: 3rem;
+  position: absolute;
+  color: crimson;
+  -webkit-animation: words 15s infinite ease-in-out;
+          animation: words 15s infinite ease-in-out;
+}
+
+@media screen and (max-width: 360px) {
+  .words {
+    font-size: 1;
+    display: block;
+    text-align: center;
+    margin: auto auto;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .words {
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    margin: auto auto;
+    width: 80%;
+  }
+}
+
+.words:nth-child(1) {
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+}
+
+.words:nth-child(2) {
+  -webkit-animation-delay: -11s;
+          animation-delay: -11s;
+}
+
+.words:nth-child(3) {
+  -webkit-animation-delay: -7s;
+          animation-delay: -7s;
+}
+
+@-webkit-keyframes words {
+  0%, 5%, 100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+  20%, 80% {
+    -webkit-filter: blur(35px);
+            filter: blur(35px);
+    opacity: 1;
+  }
+}
+
+@keyframes words {
+  0%, 5%, 100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+  20%, 80% {
+    -webkit-filter: blur(35px);
+            filter: blur(35px);
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=Words.css.map */

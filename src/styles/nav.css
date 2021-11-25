@@ -1,0 +1,79 @@
+.container11 {
+  width: 100%;
+}
+
+nav {
+  background-color: none;
+  color: whitesmoke;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 100%;
+}
+
+nav .nav-image img {
+  width: 100%;
+  max-width: 50px;
+  margin-left: 2rem;
+}
+
+nav .nav-link {
+  margin-right: 2rem;
+  text-decoration: none;
+}
+
+nav .nav-link .the {
+  text-decoration: none;
+  color: crimson;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 768px) {
+  nav .nav-link .the {
+    font-size: 18px;
+  }
+}
+
+.active:hover {
+  border-bottom: 3px solid whitesmoke;
+}
+
+.popp {
+  color: crimson;
+  font-weight: bold;
+}
+
+.popp .modal-body {
+  margin-top: 0;
+}
+
+.btmove {
+  text-align: center;
+}
+
+.modal-header {
+  background-color: black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-header .modal-title {
+  display: block;
+  text-align: center;
+  margin: auto auto;
+  width: 80%;
+}
+
+.modal-header .modal-title h5 {
+  font-weight: bolder;
+}
+/*# sourceMappingURL=nav.css.map */

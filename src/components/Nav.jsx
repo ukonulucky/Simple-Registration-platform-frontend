@@ -1,11 +1,32 @@
-import React from "react";
-// import {useState} from "react"
+import React, {useState} from "react";
+import axios from "axios"
 import { NavLink } from "react-router-dom";
 import "../styles/nav.scss";
-import Lga from "./Lga";
 function Nav() {
-  //  const [FirstName, setFirstName] = useState("");
-
+  const [info, setinfo] = useState({
+    membership:"",
+    lastName: "",
+    firstName:"",
+    middleName: "",
+    dob: "",
+    gender: "",
+    education:"",
+    email: "",
+    phone:"",
+    lga:"",
+    state: "",
+    nationality:"",
+    ward: "",
+    course: "",
+    address:""
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const data = axios.post("http://localhost:5000/apply/user", info)
+      .then(response => { alert(response.data)})
+      .catch((err)=>{console.log(err)})
+    
+      }
   return (
     <nav>
       <div className="nav-image">
@@ -53,31 +74,33 @@ function Nav() {
                 ></button>
               </div>
               <div class="modal-body">
-                <form class="row g-3 mt-2">
+                <form class="row g-3 mt-2"
+                autoComplete="on"
+                  onSubmit={handleSubmit}>
                   <div class="col-md-12">
                     <label for="inputLastName" class="form-label">
                       Membership Reg No
                     </label>
-                    <input type="text" class="form-control" required />
+                    <input type="text" class="form-control" required name="membership" onChange={(e) => { setinfo({...info, membership: e.target.value} )}}   />
                   </div>
 
                   <div class="col-md-4">
                     <label for="inputLastName" class="form-label">
                       Last Name
                     </label>
-                    <input type="text" class="form-control" required />
+                    <input type="text" class="form-control" required onChange={(e) => { setinfo({...info, lastName: e.target.value }) }}/>
                   </div>
                   <div class="col-md-4">
                     <label for="FirstName" class="form-label" id="FirstName">
                       FirstName
                     </label>
-                    <input type="text" class="form-control" required />
+                    <input type="text" class="form-control" required onChange={(e) => { setinfo({ ...info, firstName: e.target.value }) }}/>
                   </div>
                   <div class="col-md-4">
                     <label for="inputMiddleName" class="form-label">
                       Middle Name
                     </label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" onChange={(e) => { setinfo({...info, middleName: e.target.value }) }} />
                   </div>
                   <div class="col-md-"></div>
 
@@ -92,6 +115,7 @@ function Nav() {
                       class="form-control"
                       placeholder="dateof birth"
                       required
+                      onChange={(e) => { setinfo({ ...info, dob: e.target.value }) }}
                     />
                   </div>
 
@@ -99,7 +123,9 @@ function Nav() {
                     <label for="inputState" class="form-label">
                       Gender
                     </label>
-                    <select id="inputState" class="form-select">
+                    <select id="inputState" class="form-select"
+                      onChange={(e) => { setinfo({ ...info, gender: e.target.value }) }}
+                    >
                       <option disabled selected>
                         --Select--
                       </option>
@@ -113,7 +139,8 @@ function Nav() {
                     <label for="inputState" class="form-label">
                       Education
                     </label>
-                    <select id="inputState" class="form-select">
+                    <select id="inputState" class="form-select"
+                      onChange={(e) => { setinfo({ ...info, education: e.target.value }) }}>
                       <option disabled selected>
                         --Select--
                       </option>
@@ -137,6 +164,7 @@ function Nav() {
                       id="email"
                       placeholder="abcd@example.com"
                       required
+                      onChange={(e) => { setinfo({ ...info, email: e.target.value }) }}
                     />
                   </div>
 
@@ -153,7 +181,9 @@ function Nav() {
                       name="phone"
                       id="phone"
                       class="form-control"
+                      type="number"
                       required
+                      onChange={(e) => { setinfo({ ...info, phone: e.target.value }) }}
                     />
                   </div>
 
@@ -161,7 +191,9 @@ function Nav() {
                     <label for="inputlga" class="form-label">
                       Nationality
                     </label>
-                    <input type="text" class="form-control" id="inputlga" />
+                    <input type="text" class="form-control" id="inputlga" name="nationality"
+                      onChange={(e) => { setinfo({ ...info, nationality: e.target.value }) }}
+                    />
                   </div>
 
                   <div class="col-6">
@@ -169,21 +201,64 @@ function Nav() {
                       State of origin
                     </label>
 
-                    <Lga />
+                    <select id="inputState" class="form-select"   onChange={(e) => { setinfo({ ...info, state: e.target.value }) }}>
+        <option disabled selected>
+          --Select State--
+        </option>
+        <option value="Abia">Abia</option>
+        <option value="Adamawa">Adamawa</option>
+        <option value="Akwa Ibom">Akwa Ibom</option>
+        <option value="Anambra">Anambra</option>
+        <option value="Bauchi">Bauchi</option>
+        <option value="Bayelsa">Bayelsa</option>
+        <option value="Benue">Benue</option>
+        <option value="Borno">Borno</option>
+        <option value="Cross Rive">Cross River</option>
+        <option value="Delta">Delta</option>
+        <option value="Ebonyi">Ebonyi</option>
+        <option value="Edo">Edo</option>
+        <option value="Ekiti">Ekiti</option>
+        <option value="Enugu">Enugu</option>
+        <option value="FCT">Federal Capital Territory</option>
+        <option value="Gombe">Gombe</option>
+        <option value="Imo">Imo</option>
+        <option value="Jigawa">Jigawa</option>
+        <option value="Kaduna">Kaduna</option>
+        <option value="Kano">Kano</option>
+        <option value="Katsina">Katsina</option>
+        <option value="Kebbi">Kebbi</option>
+        <option value="Kogi">Kogi</option>
+        <option value="Kwara">Kwara</option>
+        <option value="Lagos">Lagos</option>
+        <option value="Nasarawa">Nasarawa</option>
+        <option value="Niger">Niger</option>
+        <option value="Ogun">Ogun</option>
+        <option value="Ondo">Ondo</option>
+        <option value="Osun">Osun</option>
+        <option value="Oyo">Oyo</option>
+        <option value="Plateau">Plateau</option>
+        <option value="Rivers">Rivers</option>
+        <option value="Sokoto">Sokoto</option>
+        <option value="Taraba">Taraba</option>
+        <option value="Yobe">Yobe</option>
+        <option value="Zamfara">Zamfara</option>
+        <option value="Others">others</option>
+      </select>
+
                   </div>
 
                   <div class="col-6">
                     <label for="inputlga" class="form-label">
                       LGA of origin
                     </label>
-                    <input type="text" class="form-control" id="inputlga" />
+                    <input type="text" class="form-control" id="inputlga"  name="lga" onChange={(e) => { setinfo({ ...info, lga: e.target.value }) }} />
                   </div>
 
                   <div class="col-6">
                     <label for="inputlga" class="form-label">
                       Ward
                     </label>
-                    <input type="text" class="form-control" id="inputlga" />
+                    <input type="text" class="form-control" name="word" id="inputlga" onChange={(e) => { setinfo({ ...info, ward: e.target.value }) }} />
                   </div>
 
                   <div class="col-9">
@@ -192,19 +267,22 @@ function Nav() {
                     </label>
 
                     <textarea
-                      name="adrss"
                       id=""
                       cols="50"
                       rows="5"
                       class="form-control"
-                    ></textarea>
+                      name="address"
+                      onChange={(e) => { setinfo({ ...info, address: e.target.value }) }}
+                    />
                   </div>
 
                   <div class="col-md-6">
                     <label for="inputState" class="form-label">
                       Course
                     </label>
-                    <select id="inputState" class="form-select" required>
+                    <select id="inputState" class="form-select" required
+                    onChange={(e) => { setinfo({ ...info, course: e.target.value }) }}
+                    >
                       <option disabled selected>
                         --Select--
                       </option>

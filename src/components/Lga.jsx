@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/nav.scss";
 
+
 const Lga = () => {
+  const [info, setinfo] = useState({
+    membership:"",
+    lastName: "",
+    fullName: "",
+    middleName: "",
+    dob: "",
+    gender: "",
+    education:"",
+    address1:"",
+    address2: "",
+    email: "",
+    phone:"",
+    city: "",
+    lga:"",
+    state: "",
+    nationality:"",
+    zip:""
+    
+    
+  })
+  
   return (
     <div>
-      <select id="inputState" class="form-select">
+      <select id="inputState" class="form-select"   onChange={(e) => { setinfo({ ...info, lga: e.target.value }) }}>
         <option disabled selected>
           --Select State--
         </option>

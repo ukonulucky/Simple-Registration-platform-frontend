@@ -1,6 +1,7 @@
 import React from "react";
 
 const Form = () => {
+ 
     return (
       <div className="container">
         <div>
@@ -10,34 +11,28 @@ const Form = () => {
   Launch demo modal
 </button> */}
 
-
-
-
-
-
-
           <h1>Course Registeration Form</h1>
           <h4>Fill out the form carefully for registration</h4>
         </div>
         <div>
-          <form class="row g-3 mt-5">
+          <form method ="post" action="/post/reg" class="row g-3 mt-5">
             <div class="col-md-3">
               <label for="inputLastName" class="form-label">
                 Last Name
               </label>
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" name="lastName" />
             </div>
             <div class="col-md-3">
               <label for="inputFirstName" class="form-label">
                 First Name
               </label>
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" name="firstName"/>
             </div>
             <div class="col-md-3">
               <label for="inputMiddleName" class="form-label">
                 Middle Name
               </label>
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" name="middleName" />
             </div>
             <div class="col-md-3"></div>
 
@@ -45,14 +40,14 @@ const Form = () => {
               <label for="dob" class="form-label">
                 Date of Birth
               </label>
-              <input type="date" name="dob" id="" class="form-control" placeholder="dateof birth" />
+              <input type="date" name="dob" id="" class="form-control" placeholder="date of birth" name="dateOfBirth"/>
             </div>
 
             <div class="col-md-3">
-              <label for="inputState" class="form-label">
+              <label for="gender" class="form-label">
                 Gender
               </label>
-              <select id="inputState" class="form-select">
+              <select id="gender" class="form-select" name="gender">
                 <option selected>Choose...</option>
                 <option>Male</option>
                 <option>Female</option>
@@ -60,10 +55,10 @@ const Form = () => {
             </div>
 
             <div class="col-md-3">
-              <label for="inputState" class="form-label">
+              <label for="education1" class="form-label">
                 Select Education
               </label>
-              <select id="inputState" class="form-select">
+              <select id="education1" class="form-select" name="education">
                 <option selected>Choose...</option>
                 <option>O-level</option>
                 <option>Undergraduate</option>
@@ -83,6 +78,7 @@ const Form = () => {
                 class="form-control"
                 id="inputAddress"
                 placeholder="1234 Main St"
+                name="address1"
               />
             </div>
             <div class="col-12">
@@ -93,6 +89,7 @@ const Form = () => {
                 type="text"
                 class="form-control"
                 id="inputAddress2"
+                name="address2"
                 placeholder="Apartment, studio, or floor"
               />
             </div>
@@ -100,13 +97,13 @@ const Form = () => {
               <label for="inputCity" class="form-label">
                 City
               </label>
-              <input type="text" class="form-control" id="inputCity" />
+              <input type="text" class="form-control" id="inputCity" name="city" />
             </div>
             <div class="col-md-4">
               <label for="inputState" class="form-label">
                 State
               </label>
-              <select id="inputState" class="form-select">
+              <select id="inputState" class="form-select" input="state">
                 <option selected>Choose...</option>
                 <option>...</option>
               </select>
@@ -115,7 +112,7 @@ const Form = () => {
               <label for="inputZip" class="form-label">
                 Zip
               </label>
-              <input type="text" class="form-control" id="inputZip" />
+              <input type="text" class="form-control" id="inputZip" name="zip"/>
             </div>
             <div class="col-12">
               <div class="form-check">
@@ -123,6 +120,7 @@ const Form = () => {
                   class="form-check-input"
                   type="checkbox"
                   id="gridCheck"
+                  name="bolean"
                 />
                 <label class="form-check-label" for="gridCheck">
                   Check me out
